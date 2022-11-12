@@ -4,7 +4,7 @@
 
 // Set up an empty cart for use on this page.
 const cart = new Cart([]);
-
+console.log(cart);
 // On screen load, we call this method to put all of the product options
 // (the things in the Product.allProducts array) into the drop down list.
 function populateForm() {
@@ -49,18 +49,29 @@ function addSelectedItemToCart(item, quantity) {
   cart.addItem(item, quantity);
 }
 
-// TODONE: Update the cart count in the header nav with the number of items in the Cart
+// TODO: Update the cart count in the header nav with the number of items in the Cart
 function updateCounter() {
+
   const counterElem = document.getElementById('itemCount');
   const cartCount = document.createElement('cartCount');
   cartCount.textContent = `Items in cart: ${parseInt(event.target.quantity.value)}`;
   counterElem.appendChild(cartCount);
 }
 
-// TODO: As you add items into the cart, show them (item & quantity) in the cart preview div
-function updateCartPreview() {
-  // TODO: Get the item and quantity from the form
-  // TODO: Add a new element to the cartContents div with that information
+// COME BACK TO THIS!!!
+// *TODO: As you add items into the cart, show them (item & quantity) in the cart preview div
+function updateCartPreview(item, quantity) {
+  // TODONE: Get the item and quantity from the form
+  let cartItems = event.target.items.value;
+  let cartQuantity = event.target.quantity.value;
+  console.log(cartItems, cartQuantity);
+  // TODONE: Add a new element to the cartContents div with that information
+  const cartContentsElem = document.getElementById('cartContents');
+  const cartContentsDisp = document.createElement('contents');
+ 
+ // * GET THESE TO ADD TOGETHER!
+  cartContentsDisp.textContent = `${cartItems} qty: ${cartQuantity}`;
+  cartContentsElem.appendChild(cartContentsDisp);
 }
 
 // Set up the "submit" event listener on the form.
