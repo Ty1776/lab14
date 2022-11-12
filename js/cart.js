@@ -23,9 +23,13 @@ function clearCart() {}
 
 // TODO: Fill in the <tr>'s under the <tbody> for each item in the cart
 function showCart() {
-
+  let retrievedCart = localStorage.getItem('cart');
+  let parsedCart = JSON.parse(retrievedCart);
   // TODO: Find the table body
-
+  let cartTable = document.querySelector('tbody');
+  let cartElem = document.createElement('items');
+  cartElem.textContent = cart.items, cart.quantity;
+  cartTable.appendChild(cartElem);
   // TODO: Iterate over the items in the cart
   // TODO: Create a TR
   // TODO: Create a TD for the delete link, quantity,  and the item
