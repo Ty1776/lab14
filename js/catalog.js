@@ -34,7 +34,7 @@ function handleSubmit(event) {
   // console.log(event.target.items.value);
 
   // Do all the things ...
-  addSelectedItemToCart(event.target.items.value, parseInt(event.target.quantity.value));
+  addSelectedItemToCart();
   cart.saveToLocalStorage();
   updateCounter();
   updateCartPreview();
@@ -51,10 +51,20 @@ function addSelectedItemToCart(item, quantity) {
 
 // TODO: Update the cart count in the header nav with the number of items in the Cart
 function updateCounter() {
+  let itemCount = 0;
+  for (let i = 0; i < cart.length; i++);
+    let itemsInCart = cart;
+    itemCount += itemsInCart;
 
+  // if (itemCount) {
+  //   let moreItems = itemCount + parseInt(event.target.quantity.value);
+  //   console.log('items in cart', itemCount);
+  //   // let newCount = itemCount + moreItems;
+    console.log(cart);
+  // }
   const counterElem = document.getElementById('itemCount');
   const cartCount = document.createElement('cartCount');
-  cartCount.textContent = `Items in cart: ${parseInt(event.target.quantity.value)}`;
+  cartCount.textContent = `Items in cart: ${itemCount}`;
   counterElem.appendChild(cartCount);
 }
 
