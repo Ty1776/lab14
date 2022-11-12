@@ -31,19 +31,22 @@ function handleSubmit(event) {
   // TODONE: Prevent the page from reloading
   event.preventDefault();
 
+  // console.log(event.target.items.value);
+
   // Do all the things ...
-  addSelectedItemToCart();
+  addSelectedItemToCart(event.target.items.value, parseInt(event.target.quantity.value));
   cart.saveToLocalStorage();
   updateCounter();
   updateCartPreview();
 
 }
 
-// TODO: Add the selected item and quantity to the cart
-function addSelectedItemToCart() {
-  // TODO: suss out the item picked from the select list
-  // TODO: get the quantity
-  // TODO: using those, add one item to the Cart
+// TODONE: Add the selected item and quantity to the cart
+function addSelectedItemToCart(item, quantity) {
+  // TODONE: suss out the item picked from the select list
+  // TODONE: get the quantity
+  // TODONE: using those, add one item to the Cart
+  cart.addItem(item, quantity);
 }
 
 // TODO: Update the cart count in the header nav with the number of items in the Cart
